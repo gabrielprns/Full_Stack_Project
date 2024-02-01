@@ -3,12 +3,12 @@ import { createContext, useContext, useState } from "react";
 const stateContext = createContext({
 
   user: null,
-  token:null,
+  token: null,
   setUser:()=>{}, 
   setToken:()=>{} 
 })
 
-export const contextProvider = ({children})=> {
+export const ContextProvider = ({children})=> {
 
   const [user,setUser] = useState({});
   const[token,_setToken] = useState(localStorage.getItem("ACCESS_TOKEN"));
