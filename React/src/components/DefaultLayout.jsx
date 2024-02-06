@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, Link } from 'react-router-dom'
 import {useStateContext} from "../contexts/ContextProvider.jsx"
 const DefaultLayout = () => {
 
@@ -8,10 +8,33 @@ const DefaultLayout = () => {
   if(!token){
     return <Navigate to="/Login"/>
   }
+
+  const onLogout = (ev) => {
+    ev.preventDefault()
+  }
+
   return (
-    <div>
-      Default
-      <Outlet/>
+    <div id="defaultLayout">
+      <aside>
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/users">Users</Link>
+      </aside>
+      <div className="content">
+        <header>
+          <div>
+            Header
+          </div>
+            
+          <div>
+            {user.name}
+            <a href="#" onClick={onLogout} className="btn-logout"></a>
+          </div>
+        </header>
+        <main>
+          <Outlet/>
+        </main>
+      </div>
+      
     </div>
   )
 }

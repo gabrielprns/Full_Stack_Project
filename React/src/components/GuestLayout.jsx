@@ -11,7 +11,7 @@ const GuestLayout = () => {
   }
   return (
     <div>
-      For Guests 
+      
       <Outlet/>
     </div>
   )
