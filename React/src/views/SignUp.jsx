@@ -27,7 +27,7 @@ const SignUp = () => {
       })
       .catch(err=>{
         const response = err.response;
-        if (response && response.status == 422){
+        if (response && response.status === 422){
           console.log(response.data.errors);
         }
 
